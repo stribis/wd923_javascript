@@ -47,12 +47,10 @@ createButton.addEventListener("click", createElement);
 */
 
 // div check, ob ein div bereits existiert
-// diese Variable muss ausserhalb einer funktion sein
-// da sie sonst nicht global ist.
-// So ist es nun global-scoped und kann überall verwendet werden
 // Damit es aber bei jedem klick auf den Buttons geprüft werden kann, müssen wir es in eine eigene Funktion packen
 function checkDiv() {
   const existingDiv = document.querySelector("div");
+  // wenn es ein div gibt, dann gebe es zurück
   return existingDiv;
 }
 
@@ -63,6 +61,7 @@ function createElement() {
   const superhero = prompt("Wer ist dein Lieblingssuperheld?");
 
   if (name === "" || profession == "" || superhero === "") {
+    // alert, wenn eines der Felder leer ist
     alert("Bitte fülle alle Felder aus");
   } else {
     // check ob div existiert
@@ -90,6 +89,8 @@ function createElement() {
 styleButton.addEventListener("click", styleElement);
 
 function styleElement() {
+  // check ob div existiert
   const existingDiv = checkDiv();
+  // wenn es ein div gibt, dann füge die Klasse hinzu
   existingDiv.classList.add("background-style");
 }
