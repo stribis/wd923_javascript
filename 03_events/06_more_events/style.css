@@ -1,0 +1,19 @@
+body {
+  background: #222;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 15px;
+  font-size: 40px;
+}
+
+.entered {
+  background: blue;
+}
+
+.leave {
+  background: pink;
+}
