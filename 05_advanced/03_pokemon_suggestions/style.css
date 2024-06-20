@@ -1,0 +1,106 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  overflow: hidden;
+}
+
+#pokemon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+
+.pokemon-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  height: 320px;
+  width: 250px;
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.pokemon-card img {
+  width: 200px;
+  height: 200px;
+}
+
+.pokemon-name {
+  font-size: 25px;
+  margin: 10px 0;
+  font-weight: 700;
+  color: #232323;
+}
+
+.pokemon-types {
+  font-size: 14px;
+  color: #666;
+}
+
+.controls {
+  display: flex;
+}
+
+#skip-button {
+  color: white;
+  background: rgb(65, 62, 62);
+  border: none;
+  height: 80px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 30px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#skip-button:hover {
+  background: #232323;
+}
+
+#like-button {
+  color: white;
+  background: rgb(181, 53, 53);
+  border: none;
+  height: 80px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 30px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+#like-button:hover {
+  background: rgb(156, 44, 44);
+}
+
+.controls button:hover {
+  background-color: #0056b3;
+}
+
+.skip-animation {
+  transform: translateX(-200px);
+  opacity: 0;
+}
+
+.like-animation {
+  transform: translateX(200px);
+  opacity: 0;
+}
