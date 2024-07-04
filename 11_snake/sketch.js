@@ -1,47 +1,70 @@
-let head
+
+const cell = 20
+let s
+let food
+let scoreText = 'Score: 0'
 
 function setup () {
   createCanvas(600, 600)
-  head = new Head()
+  frameRate(10)
+  s = new Snake()
+  pickLocation()
 }
 
 function draw () {
   background(0)
-  head.display()
+
+  stroke(255)
+
+  if (s.eat(food)) {
+    pickLocation()
+  }
+
+
+  for (let i = 0; i < height; i += cell) {
+    line(0, i, width, i)
+  }
+
+  for (let i = 0; i < width; i += cell) {
+    line(i, 0, i, height)
+  } 
+
+  s.death()
+  s.update()
+  s.show()
+
+  fill(255, 0, 0)
+  rect(food.x, food.y, cell, cell)
+
+  // Score Text
+  fill('yellow')
+  textSize(48)
+  text(scoreText, 10, 40)
 }
 
+function keyPressed () {
+  // UP: UP_ARROW
+  // Snake x: 0 y: -1
 
-class Head {
-
-  constructor () {
-    this.x = 100
-    this.y = 100
-  }
-
-  display () {
-    noStroke()
-    fill(255)
-    square(this.x, this.y, 20)
-  }
-
-  update (x, y) {
-    this.x = this.x + (x * 20)
-    this.y = this.y + (y * 20)
-  }
-
-}
-
-function keyPressed() {
   if (keyCode === RIGHT_ARROW) {
-    head.update(1, 0)
-  }
-  if (keyCode === LEFT_ARROW) {
-    head.update(-1, 0)
-  }
-  if (keyCode === UP_ARROW) {
-    head.update(0, -1)
-  }
-  if (keyCode === DOWN_ARROW) {
-    head.update(0, 1)
+    s.dir(1,0)
+  } else if ( keyCode === DOWN_ARROW) {
+    s.dir(0, 1)
+  } else if ( keyCode === LEFT_ARROW ) {
+    s.dir(-1, 0)
+  } else if( keyCode === UP_ARROW ) {
+    s.dir(0, -1)
   }
 }
+
+function pickLocation () {
+  const cols = floor(width/cell) 
+  const rows = floor(height/cell)
+
+  food = createVector(floor(random(0, cols)), floor(random(0, rows)))
+  food.mult(cell)
+  console.log(food)
+
+}
+
+
