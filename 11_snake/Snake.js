@@ -12,13 +12,14 @@ class Snake {
   }
 
   show ( ) {
-    fill (255)
+    fill (0, 255, 0)
 
     for (let i = 0; i < this.tail.length; i++) {
       rect(this.tail[i].x, this.tail[i].y, cell, cell )
     }
     // Snake Head
-    rect(this.x, this.y, cell, cell)
+    // rect(this.x, this.y, cell, cell)
+    quad(this.x + 10, this.y, this.x+20, this.y +10, this.x+10, this.y + 20, this.x, this.y+10)
   }
 
   update () {
